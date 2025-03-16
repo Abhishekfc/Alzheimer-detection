@@ -9,6 +9,13 @@ from fpdf import FPDF
 
 import mysql.connector
 
+
+model_path = "model.h5"
+gdrive_url = "https://drive.google.com/uc?id=15mWlhfpuU-xlKPc9sqonX2A0Y4zjt35z"  # ✅ Corrected direct download link
+
+# ✅ Download model if it does not exist
+if not os.path.exists(model_path):
+    gdown.download(gdrive_url, model_path, quiet=False)
 # Connect to the MySQL database
 try:
     mydb = mysql.connector.connect(
