@@ -1,5 +1,10 @@
 import streamlit as st
 import tensorflow as tf
+@st.cache_resource  # ✅ Caches the model to avoid reloading every time
+def load_model():
+    return tf.keras.models.load_model("model.h5")
+
+model = load_model()
 from PIL import Image
 import numpy as np
 from streamlit_option_menu import option_menu
