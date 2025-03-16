@@ -1,16 +1,5 @@
 import os
 import streamlit as st
-
-# ✅ Force Streamlit to use the correct port
-port = int(os.environ.get("PORT", 8501))  # Get Render's dynamic port
-st.set_page_config(page_title="Alzheimer Detection App", layout="wide")
-
-# ✅ Start Streamlit on the correct port
-if __name__ == "__main__":
-    st.write(f"Running on port {port}")
-    os.system(f"streamlit run app2.py --server.port={port}")
-
-
 import gdown
 import tensorflow as tf
 from PIL import Image
@@ -30,11 +19,11 @@ if not os.path.exists(model_path):
     gdown.download(gdrive_url, model_path, quiet=False)
 
 # ✅ Load model only once and cache it
-@st.cache_resource
-def load_model():
-    return tf.keras.models.load_model(model_path)
+# @st.cache_resource
+# def load_model():
+#     return tf.keras.models.load_model(model_path)
 
-model = load_model()  # ✅ Correct model loading
+# model = load_model()  # ✅ Correct model loading
 
 
 # Connect to the MySQL database
