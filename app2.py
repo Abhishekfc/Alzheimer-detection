@@ -1,18 +1,30 @@
 import streamlit as st
+import os
+import gdown
 import tensorflow as tf
-@st.cache_resource  # ✅ Caches the model to avoid reloading every time
-def load_model():
-    return tf.keras.models.load_model("model.h5")
-
-model = load_model()
 from PIL import Image
 import numpy as np
 from streamlit_option_menu import option_menu
 import re
 import base64
 from fpdf import FPDF
-
 import mysql.connector
+
+# ✅ Correct Google Drive Direct Download Link
+model_path = "model.h5"
+gdrive_url = "https://drive.google.com/uc?id=15mWlhfpuU-xlKPc9sqonX2A0Y4zjt35z"  # ✅ Corrected direct download link
+
+# ✅ Download model if it does not exist
+if not os.path.exists(model_path):
+    gdown.download(gdrive_url, model_path, quiet=False)
+
+# ✅ Load model only once and cache it
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model(model_path)
+
+model = load_model()  # ✅ Correct model loading
+
 
 # Connect to the MySQL database
 try:
