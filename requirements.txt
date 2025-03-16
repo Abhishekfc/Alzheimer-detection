@@ -4,4 +4,4 @@ numpy
 Pillow
 streamlit
 streamlit_option_menu
-tensorflow==2.8
+tensorflow
