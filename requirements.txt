@@ -6,4 +6,3 @@ streamlit
 streamlit_option_menu
 tensorflow
 mysql-connector-python
-os
