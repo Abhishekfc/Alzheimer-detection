@@ -1,9 +1,0 @@
-tensorflow-cpu
-streamlit
-numpy
-pillow
-gdown
-mysql-connector-python
-streamlit-option-menu
-fpdf
-gdown
