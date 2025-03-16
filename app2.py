@@ -2,11 +2,6 @@
 import os
 import streamlit as st
 
-port = int(os.environ.get("PORT", 8501))  # Use Render's assigned PORT or default 8501
-st.write(f"Running on port {port}")  # Debugging line
-
-st.run(f"streamlit run app2.py --server.port={port}")
-
 import gdown
 import tensorflow as tf
 from PIL import Image
