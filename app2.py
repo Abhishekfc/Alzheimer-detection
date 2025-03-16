@@ -1,6 +1,15 @@
-
 import os
 import streamlit as st
+
+# ✅ Force Streamlit to use the correct port
+port = int(os.environ.get("PORT", 8501))  # Get Render's dynamic port
+st.set_page_config(page_title="Alzheimer Detection App", layout="wide")
+
+# ✅ Start Streamlit on the correct port
+if __name__ == "__main__":
+    st.write(f"Running on port {port}")
+    os.system(f"streamlit run app2.py --server.port={port}")
+
 
 import gdown
 import tensorflow as tf
