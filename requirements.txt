@@ -5,3 +5,4 @@ pillow
 gdown
 mysql-connector-python
 streamlit-option-menu
+fpdf
